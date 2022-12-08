@@ -1,5 +1,5 @@
-﻿// Задача 60. ...Сформируйте трёхмерный массив из 
-// неповторяющихся двузначных чисел. Напишите программу, 
+﻿// Задача 60. ...Сформируйте трёхмерный массив из
+// неповторяющихся двузначных чисел. Напишите программу,
 // которая будет построчно выводить массив, добавляя индексы каждого элемента.
 // Например, задан массив размером 2 x 2 x 2.
 // Результат:
@@ -11,20 +11,14 @@ int[,,] CreateCubeRndIntMatrix(int rows, int columns, int depth, int min, int ma
 {
     int[,,] cubematrix = new int[rows, columns, depth]; //строка и колонка
 
-    Random rnd = new Random(); //надо делать так
+    int rnd = 44;
     for (int i = 0; i < cubematrix.GetLength(0); i++)
-    {   
+    {
         for (int j = 0; j < cubematrix.GetLength(1); j++)
         {
             for (int k = 0; k < cubematrix.GetLength(2); k++)
             {
-                cubematrix[i, j, k] = rnd.Next(min, max + 1); //i = индекс массива
-
-                if(i == j && j == k) 
-                {
-                    cubematrix[i, j, k] = rnd.Next(min, max + 1); //i = индекс массива
-
-                }
+                cubematrix[i, j, k] = rnd++; 
             }
         }
     }
@@ -40,8 +34,8 @@ void PrintCubeMatrix(int[,,] cubematrix)
         {
             for (int k = 0; k < cubematrix.GetLength(2); k++)
             {
-                Console.Write(cubematrix[i, j, k]);
-                Console.Write("({0},{1},{2})\t", i, j, k);
+                Console.Write(cubematrix[i, j, k]); // выводит значения
+                Console.Write($" ({i},{j},{k})    "); //Выводит индексы
             }
         }
         Console.WriteLine("]");
